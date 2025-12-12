@@ -1,0 +1,58 @@
+/* Contenedor con efecto arcoíris */
+.arcoiris-container {
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start; /* Alinea el botón a la izquierda */
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    background-size: 400% 400%;
+    animation: rainbow 10s ease infinite;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Estilo del botón */
+.btn-estructura {
+    font-size: 12px; /* Tamaño de la tipografía reducido */
+    font-weight: bold; /* Fuente en negrita */
+    color: #ffffff; /* Color del texto */
+    border-radius: 5px; /* Borde del botón */
+    letter-spacing: 2px; /* Espacio entre letras */
+    background-color: #6fe91e; /* Color de fondo */
+    padding: 10px 15px; /* Relleno del botón */
+    margin-top: 20px; /* Margen superior */
+    transition: all 300ms ease 0ms; /* Transición suave */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1); /* Sombra del botón */
+    text-decoration: none; /* Sin subrayado */
+    position: relative; /* Posición relativa */
+    left: -100px; /* Inicia fuera de la vista en la esquina izquierda */
+}
+
+.btn-estructura:hover {
+    background-color: #f70743; /* Color de fondo al pasar el cursor */
+    transform: translateX(100px); /* Mueve el botón a la vista */
+}
+
+@media only screen and (max-width: 600px) {
+    .btn-estructura {
+        font-size: 10px; /* Tamaño de la tipografía más reducido */
+        padding: 8px 12px; /* Relleno reducido */
+        left: -80px; /* Ajuste para pantallas pequeñas */
+        margin-top: 10px; /* Margen superior reducido */
+    }
+
+    .btn-estructura:hover {
+        transform: translateX(80px); /* Ajuste para pantallas pequeñas */
+    }
+}

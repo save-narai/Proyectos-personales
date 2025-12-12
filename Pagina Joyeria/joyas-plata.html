@@ -1,0 +1,185 @@
+JOYAS EN PLATA
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>joyería sp universo</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Serif:400,700,700i|Open+Sans:400,700&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="css/joyas-plata.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="contenido-header">
+    <div class="fondo" id="fondo">
+      <h1 class="texto">Joyería SP Universo</h1>
+    </div>
+  </div>
+
+  <nav class="menu">
+    <a href="index.html">Inicio</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="joyasenplata.html">Joyas en Plata</a>
+    <a href="joyasenoro.html">Joyas en Oro</a>
+    <a href="contactenos.html">Contáctenos</a>
+  </nav>
+<br><br><br>
+<body class="bg-white text-gray-800">
+  <header class="bg-white shadow-md p-6 flex justify-between items-center">
+    <h1 class="text-2xl font-bold color-principal">Joyería en Plata</h1>
+    <div class="relative">
+      <button onclick="toggleCart()" class="bg-principal text-white px-4 py-2 rounded hover:bg-principal-dark">Ver Carrito (<span id="cart-count">0</span>)</button>
+      <div id="cart" class="hidden absolute right-0 mt-2 w-64 carrito-color border border-gray-200 shadow-lg p-4 z-10">
+        <h2 class="text-lg font-semibold mb-2">Carrito de Compras</h2>
+        <ul id="cart-items" class="mb-2 text-sm"></ul>
+        <p class="font-semibold">Total: <span id="cart-total">$0</span></p>
+        <button onclick="confirmClearCart()" class="mt-2 bg-white text-black px-3 py-1 rounded hover:bg-gray-200">Limpiar Carrito</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="p-6 max-w-7xl mx-auto">
+    <section class="mb-10">
+      <h2 class="text-3xl font-semibold mb-4 color-principal">Colección Destacada</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Joya 1 -->
+        <div class="border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition">
+          <img src="https://images.pexels.com/photos/30852235/pexels-photo-30852235.jpeg" alt="Anillo de Plata" class="w-full">
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2 color-principal">Anillo de Plata</h3>
+            <p class="text-gray-600 mb-1">Elegante anillo de plata 925 con diseño moderno.</p>
+            <p class="text-gray-800 font-bold mb-4">$120.000 COP</p>
+            <button onclick="addToCart('Anillo de Plata', 120000)" class="bg-principal text-white px-4 py-2 rounded hover:bg-principal-dark">Agregar al Carrito</button>
+          </div>
+        </div>
+
+        <!-- Joya 2 -->
+        <div class="border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition">
+          <img src="https://images.pexels.com/photos/10983780/pexels-photo-10983780.jpeg" alt="Collar de Plata" class="w-full">
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2 color-principal">Collar de Plata</h3>
+            <p class="text-gray-600 mb-1">Collar artesanal de plata con incrustaciones de piedra luna.</p>
+            <p class="text-gray-800 font-bold mb-4">$180.000 COP</p>
+            <button onclick="addToCart('Collar de Plata', 180000)" class="bg-principal text-white px-4 py-2 rounded hover:bg-principal-dark">Agregar al Carrito</button>
+          </div>
+        </div>
+
+        <!-- Joya 3 -->
+        <div class="border rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition">
+          <img src="https://images.pexels.com/photos/8398911/pexels-photo-8398911.jpeg" alt="Pulsera de Plata" class="w-full">
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2 color-principal">Pulsera de Plata</h3>
+            <p class="text-gray-600 mb-1">Pulsera delicada de plata con detalles florales.</p>
+            <p class="text-gray-800 font-bold mb-4">$95.000 COP</p>
+            <button onclick="addToCart('Pulsera de Plata', 95000)" class="bg-principal text-white px-4 py-2 rounded hover:bg-principal-dark">Agregar al Carrito</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-3xl font-semibold mb-4 color-principal">Videos Inspiradores</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <video controls class="rounded shadow-md w-full">
+          <source src="video1.mp4" type="video/mp4">
+          Tu navegador no soporta la reproducción de videos.
+        </video>
+        <video controls class="rounded shadow-md w-full">
+          <source src="video2.mp4" type="video/mp4">
+          Tu navegador no soporta la reproducción de videos.
+        </video>
+      </div>
+    </section>
+  </main>
+
+  
+
+  <script>
+    let cart = [];
+
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById('cart-items');
+      const cartTotal = document.getElementById('cart-total');
+      const cartCount = document.getElementById('cart-count');
+      cartItems.innerHTML = '';
+
+      let total = 0;
+      cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} - $${item.price.toLocaleString('es-CO')} COP`;
+        cartItems.appendChild(li);
+        total += item.price;
+      });
+
+      cartTotal.textContent = `$${total.toLocaleString('es-CO')} COP`;
+      cartCount.textContent = cart.length;
+    }
+
+    function clearCart() {
+      cart = [];
+      updateCart();
+    }
+
+    function confirmClearCart() {
+      if (confirm('¿Estás seguro de que deseas vaciar el carrito?')) {
+        clearCart();
+      }
+    }
+
+    function toggleCart() {
+      const cartEl = document.getElementById('cart');
+      cartEl.classList.toggle('hidden');
+    }
+  </script>
+    <footer class="footer">
+        <!-- Contacto -->
+        <div class="footer-column">
+            <h3>Contacto</h3>
+            <p>📍 Dirección: Calle Falsa 123</p>
+            <p>📞 Teléfono: +57 3508143687</p>
+            <p>✉️ samy@spuniverso.com</p>
+        </div>
+
+        <!-- Links -->
+        <!-- Links -->
+        <div class="footer-column">
+            <h3>Enlaces</h3>
+            <p><a href="index.html">Inicio</a></p>
+      <p><a href="nosotros.html">Nosotros</a></p>
+      <p><a href="joyasenplata.html">Joyas en Plata</a></p>
+      <p><a href="joyasenoro.html">Joyas en Oro</a></p>
+      <p><a href="contactenos.html">Contáctenos</a></p>
+        </div>
+
+        <!-- Redes sociales -->
+        <div class="footer-column">
+            <h3>Síguenos</h3>
+            <div class="redes-sociales">
+        <a href="https://www.facebook.com/" target="_blank" class="facebook">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/" target="_blank" class="instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/1234567890" target="_blank" class="whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
+
+        </div>
+    </footer>
+
+  
+  <script src="js/main.js"></script>
+</body>
+</html>
+
+

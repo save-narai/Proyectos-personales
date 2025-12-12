@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego de Memoria</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  
+</head>
+<body>
+  <h1>Juego de Memoria</h1>
+  <div class="controls">
+    <button onclick="startGame()">Iniciar</button>
+    <button onclick="resetGame()">Reiniciar</button>
+  </div>
+  <div id="timer">Tiempo: 0s</div>
+  <div id="score">Puntos: 0</div>
+  <div class="game" id="game"></div>
+
+  <script>
+    const icons = [
+      'fa-heart', 'fa-star', 'fa-moon', 'fa-sun', 'fa-apple-alt',
+      'fa-anchor', 'fa-bicycle', 'fa-bolt', 'fa-cat', 'fa-car'
+    ];
+    let selected = [];
+    let matched = [];
+    let score = 0;
+    let time = 0;
+    let timerInterval;
+    let gameOver = false;
+    const maxTime = 60;
+    const gameContainer = document.getElementById('game');
+    const scoreText = document.getElementById('score');
+    const timerText = document.getElementById('timer');
+
+    function createCard(icon, index) {
+      const card = document.createElement('div');
+      card.classList.add('card');
+      card.dataset.icon = icon;
+
+      const inner = document.createElement('div');
+      inner.classList.add('inner-card');
+      inner.innerHTML = `
+        <div class="front"></div>
+        <div class="back"><i class="fas ${icon}"></i></div>
+      `;
+      card.appendChild(inner);
+      card.addEventListener('click', () => flipCard(card));
+      return card;
+    }
+
+    function shuffleArray(arr) {
+      return arr.sort(() => 0.5 - Math.random());
+    }
+
+    function startGame() {
+      clearInterval(timerInterval);
+      time = 0;
+      gameOver = false;
+      timerText.textContent = 'Tiempo: 0s';
+      timerInterval = setInterval(() => {
+        time++;
+        timerText.textContent = `Tiempo: ${time}s`;
+        if (time >= maxTime) {
+          clearInterval(timerInterval);
+          gameOver = true;
+          alert('⏳ ¡Game Over! Se acabó el tiempo.');
+        }
+      }, 1000);
+
+      gameContainer.innerHTML = '';
+      score = 0;
+      matched = [];
+      scoreText.textContent = 'Puntos: 0';
+      selected = [];
+      const doubleIcons = shuffleArray([...icons, ...icons]);
+      doubleIcons.forEach((icon, i) => {
+        const card = createCard(icon, i);
+        gameContainer.appendChild(card);
+      });
+    }
+
+    function resetGame() {
+      clearInterval(timerInterval);
+      startGame();
+    }
+
+    function flipCard(card) {
+      if (gameOver || selected.length === 2 || matched.includes(card)) return;
+      const inner = card.firstChild;
+      if (selected.includes(card)) return;
+      inner.classList.add('flipped');
+      selected.push(card);
+
+      if (selected.length === 2) {
+        setTimeout(() => {
+          const [first, second] = selected;
+          if (first.dataset.icon === second.dataset.icon) {
+            matched.push(first, second);
+            score++;
+            scoreText.textContent = `Puntos: ${score}`;
+            if (matched.length === 20) {
+              clearInterval(timerInterval);
+              alert(`🎉 ¡Felicidades! Has ganado en ${time} segundos.`);
+            }
+          } else {
+            first.firstChild.classList.remove('flipped');
+            second.firstChild.classList.remove('flipped');
+          }
+          selected = [];
+        }, 1000);
+      }
+    }
+  </script>
+  
+</body>
+</html>
+

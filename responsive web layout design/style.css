@@ -1,0 +1,107 @@
+* {
+	font-family: "Montserrat", serif;
+	padding: 0;
+	margin: 0;
+}
+.wrapper {
+	background-image: url(1.jpg);
+	background-size: cover;
+	background-position: center center;
+}
+header {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 60px;
+	position: fixed;
+	margin: auto;
+	width: 100%;
+}
+.logo {
+	max-width: 200px;
+	color: #fff;
+	font-family: "Bebas Neue", serif;
+	font-size: 30px;
+	margin: 20px;
+}
+nav {
+	margin-bottom: 20px;
+}
+.nav-items {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.nav-items li {
+	display: inline-block;
+	margin-right: 20px;
+}
+.nav-items a {
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 5px 15px;
+	transition: all .5s ease-in-out;
+}
+.nav-items a:hover {
+	background: #fff;
+	color: #262626;
+}
+.banner-text {
+	display: flex;
+	justify-content: center;
+	height: 100vh;
+	align-items: center;
+	color: #fff;
+	text-align: center;
+}
+.single-banner h2 {
+	font-family: "Pacifico", serif;
+	font-size: 66px;
+	animation: animate 3s infinite alternate;
+}
+@keyframes animate {
+	0%, 100% {
+		transform: translateY(-6px);
+	}
+	50% {
+		transform: translateY(0);
+	}
+}
+.single-banner p {
+	font-size: 20px;
+	margin-top: 15px;
+}
+.single-banner a {
+	text-decoration: none;
+	display: inline-block;
+	background: transparent;
+	border: 2px solid #fff;
+	color: #fff;
+	padding: 10px 30px;
+	margin-top: 30px;
+	border-radius: 50px;
+	transition: all .5s ease;
+}
+.single-banner a:hover {
+	background: #fff;
+	color: #262626;
+}
+@media (max-width: 600px) {
+	.single-banner h2 {
+		font-size: 30px;
+	}
+	.single-banner p {
+		font-size: 14px;
+		margin-top: 10px;
+	}
+	.single-banner a {
+		padding: 5px 15px;
+	}
+	.nav-items a {
+		padding: 5px;
+		font-size: 11px;
+	}
+}
